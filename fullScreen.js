@@ -28,6 +28,7 @@ function toggleFullScreen() {
         } else if (document.documentElement.webkitRequestFullScreen) {
             document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
         }
+        alert("You have entered full screen. Click anywhere on the website to exit full screen mode.");
     } else {
         if (document.cancelFullScreen) {
             document.cancelFullScreen();
@@ -36,6 +37,7 @@ function toggleFullScreen() {
         } else if (document.webkitCancelFullScreen) {
             document.webkitCancelFullScreen();
         }
+        alert("You have exited full screen. Click anywhere on the website to enter full screen mode.");
     }
 }
 
