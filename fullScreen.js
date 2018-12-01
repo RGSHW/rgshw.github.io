@@ -18,26 +18,26 @@
 /* https://jscompress.com/ */
 
 // Full screen toggle
-function toggleFullScreen() {
-    if ((document.fullScreenElement && document.fullScreenElement !== null) ||
-        (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-        if (document.documentElement.requestFullScreen) {
-            document.documentElement.requestFullScreen();
-        } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullScreen) {
-            document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-        }
-        alert("You have entered full screen. Click anywhere on the website to exit full screen mode.");
+function toggleFullScreen(event) {
+    var element = document.body;
+
+    if (event instanceof HTMLElement) {
+        element = event;
+    }
+
+    var isFullscreen = document.webkitIsFullScreen || document.mozFullScreen || false;
+
+    element.requestFullScreen = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || function () {
+        return false;
+    };
+    document.cancelFullScreen = document.cancelFullScreen || document.webkitCancelFullScreen || document.mozCancelFullScreen || function () {
+        return false;
+    };
+
+    if (isFullscreen) {
+        document.cancelFullScreen();
     } else {
-        if (document.cancelFullScreen) {
-            document.cancelFullScreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen();
-        }
-        alert("You have exited full screen. Click anywhere on the website to enter full screen mode.");
+        element.requestFullScreen();
     }
 }
 
