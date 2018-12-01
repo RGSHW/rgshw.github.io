@@ -1,0 +1,68 @@
+/**
+ *  rgshw.github.io: The selector site for the projection tools used in the main hall.
+ *  <https://github.com/rgshw/rgshw.github.io/>
+ *  Copyright (C) 2018 Matt Cowley (MattIPv4) (me@mattcowley.co.uk)
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Affero General Public License as published
+ *   by the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *  This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *  You should have received a copy of the GNU Affero General Public License
+ *   along with this program. If not, please see
+ *   <https://github.com/rgshw/rgshw.github.io/blob/master/LICENSE> or <http://www.gnu.org/licenses/>.
+ **/
+/* https://cssminifier.com/ */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.split {
+    display: flex;
+    flex-flow: row nowrap;
+    min-height: 100vh;
+}
+
+.split-inner {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 0 5vw 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    width: 50vW;
+    max-width: 50vW;
+}
+
+.split-inner * {
+    pointer-events: none;
+}
+
+.split-preview {
+    border-radius: 100%;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    margin: 0 auto 5vW;
+    width: 20vW;
+    height: 20vW;
+    overflow: hidden;
+    background: #fff;
+}
+
+.split-preview iframe {
+    border: none;
+    transform: scale(.4);
+    transform-origin: top left;
+    width: 50vW; /* 20vW (split-preview size) / 0.4 (iframe scale) */
+    height: 50vW;
+}
+
+.split-inner:nth-child(odd) {
+    background: #fff;
+    color: #4165B3;
+}
+
+.split-inner:nth-child(even) {
+    background: #4165B3;
+    color: #fff;
+}
