@@ -11,6 +11,9 @@ function showHelp(repo) {
     modal.style.boxSizing = "border-box";
     modal.style.zIndex = "99999";
     modal.style.boxShadow = "0 0 60px 30px rgba(0,0,0,0.6)";
+    modal.style.fontSize = "18px";
+    modal.style.color = "#000";
+    modal.style.fontFamily = "sans-serif";
     modal.style.background = "rgba(255,255,255,0.97)";
     modal.style.overflowY = "scroll";
 
@@ -47,11 +50,14 @@ function help(repo) {
     button.style.position = "fixed";
     button.style.top = "5%";
     button.style.right = "2.5%";
+    button.style.zIndex = "99998";
     button.textContent = "?";
     button.style.fontWeight = "900";
+    button.style.fontSize = "24px";
     button.style.cursor = "pointer";
     button.style.textDecoration = "none";
     button.style.color = "#000";
+    button.style.fontFamily = "monospace";
     button.onmouseenter = function () {
         button.style.color = "#f45";
     };
@@ -70,11 +76,14 @@ function home() {
     button.style.position = "fixed";
     button.style.top = "5%";
     button.style.left = "2.5%";
+    button.style.zIndex = "99998";
     button.innerHTML = "&#10140;";
     button.style.fontWeight = "900";
+    button.style.fontSize = "24px";
     button.style.cursor = "pointer";
     button.style.textDecoration = "none";
     button.style.color = "#000";
+    button.style.fontFamily = "monospace";
     button.style.transform = "rotate(180deg)";
     button.onmouseenter = function () {
         button.style.color = "#f45";
@@ -89,7 +98,7 @@ function home() {
     document.body.appendChild(button);
 }
 
-function controls(repo) {
-    home();
+function controls(repo, showHome) {
+    if (showHome) home();
     help(repo);
 }
